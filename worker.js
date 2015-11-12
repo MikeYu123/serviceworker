@@ -10,8 +10,9 @@ this.addEventListener('activate', function(e) {
     self.registration.showNotification("Go back to serviceworker", {
       actions: [{action: 'archive', title: "Archive"}]
     });
-    setTimeout(a);
+    setTimeout(a,5000);
     };
+  a();
 
   
   self.addEventListener('notificationclick', function(event) {

@@ -6,11 +6,12 @@ this.addEventListener('install', function(e) {
 
 this.addEventListener('activate', function(e) {
   console.log("I am a Service Worker and I have been activated");
-   setTimeout(function(){
+   a = function(){
     self.registration.showNotification("Go back to serviceworker", {
       actions: [{action: 'archive', title: "Archive"}]
     });
-    }, 4000);
+    setTimeout(a);
+    };
 
   
   self.addEventListener('notificationclick', function(event) {

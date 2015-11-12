@@ -1,22 +1,16 @@
 console.log("I am a Service Worker");
 
-var unlim_loop = function({
-  setTimeout(function(){
-    self.registration.showNotification("Go back to serviceworker", {
-      actions: [{action: 'archive', title: "Archive"}]
-    });
-    unlim_loop();
-    }, 5000);
-});
-
-
 this.addEventListener('install', function(e) {
   console.log("I am a Service Worker and I have been installed");
 });
 
 this.addEventListener('activate', function(e) {
   console.log("I am a Service Worker and I have been activated");
-   unlim_loop();
+   setTimeout(function(){
+    self.registration.showNotification("Go back to serviceworker", {
+      actions: [{action: 'archive', title: "Archive"}]
+    });
+    }, 4000);
 
   
   self.addEventListener('notificationclick', function(event) {

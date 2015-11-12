@@ -1,7 +1,8 @@
 console.log("I am a Service Worker");
 Notification.requestPermission(function(permission){
 // переменная permission содержит результат запроса
-  document.permission = permission
+  document.permission = permission;
+  console.log(permission);
 });
 
 this.addEventListener('install', function(e) {

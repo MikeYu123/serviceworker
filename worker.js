@@ -36,3 +36,19 @@ this.addEventListener('fetch', function(e) {
     }
   }, false);
 });
+
+this.addEventListener('message', function(e) {
+  self.registration.showNotification("Go back to serviceworker", {
+    actions: [{action: 'archive', title: "Archive"}]
+  });
+  
+  self.addEventListener('notificationclick', function(event) {
+    event.notification.close();
+    if (event.action === 'archive') {
+      var win = window.open('https://mikeyu123.github.io/serviceworker/', '_blank');
+      win.focus();
+    } else {
+      clients.openWindow("https://mikeyu123.github.io/serviceworker/");
+    }
+  }, false);
+});

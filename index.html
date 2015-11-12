@@ -13,7 +13,11 @@
     window.addEventListener('message', function() {
       debugger;
     });
-
+    
+  Notification.requestPermission(function(permission){
+    window.permission = permission;
+    console.log(permission);
+  });
     function log() {
       var el = document.createElement('div');
       el.innerHTML = Array.prototype.join.call(arguments, '<br />');

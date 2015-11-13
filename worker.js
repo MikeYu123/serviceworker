@@ -34,8 +34,7 @@ this.addEventListener('activate', function(e) {
   self.addEventListener('notificationclick', function(event) {
     event.notification.close();
     if (event.action === 'archive') {
-      var win = window.open('https://mikeyu123.github.io/serviceworker/', '_blank');
-      win.focus();
+      clients.openWindow('https://mikeyu123.github.io/serviceworker/');
     } else {
       clients.openWindow("https://google.com");
     }

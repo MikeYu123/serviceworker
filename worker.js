@@ -7,19 +7,25 @@ this.addEventListener('install', function(e) {
 this.addEventListener('activate', function(e) {
   console.log("I am a Service Worker and I have been activated");
    a = function(){
-    var req = new XMLHttpRequest();
-    req.open('GET', 'https://mikeyu123.github.io/serviceworker/');
-    req.onload = function() {
-      // This is called even on 404 etc
-      // so check the status
-      if (req.status == 200) {
-        self.registration.showNotification("Go back to serviceworker", {
-          actions: [{action: 'archive', title: "Archive"}]
-        });
-      setTimeout(a,5000);
-      }
-    }
-    };
+    fetch('https://mikeyu123.github.io/serviceworker/')  
+      .then(  
+        function(response) {  
+          if (response.status !== 200) {  
+            console.log('Looks like there was a problem. Status Code: ' +  
+              response.status);  
+            return;  
+          }
+        else {
+          self.registration.showNotification("Go back to serviceworker", {
+            actions: [{action: 'archive', title: "Archive"}]
+          });
+        }
+    }  
+  )  
+      .catch(function(err) {  
+        console.log('Fetch Error :-S', err);  
+      });
+  };
   a();
 
   

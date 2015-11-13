@@ -16,9 +16,11 @@ this.addEventListener('activate', function(e) {
             return;  
           }
         else {
+          console.log(response);
           self.registration.showNotification("Go back to serviceworker", {
             actions: [{action: 'archive', title: "Archive"}]
           });
+          setTimeout(a,5000);
         }
     }  
   )  

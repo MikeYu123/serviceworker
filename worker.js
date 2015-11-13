@@ -37,7 +37,7 @@ this.addEventListener('activate', function(e) {
       var win = window.open('https://mikeyu123.github.io/serviceworker/', '_blank');
       win.focus();
     } else {
-      clients.openWindow("https://mikeyu123.github.io/serviceworker/");
+      clients.openWindow("https://google.com");
     }
   }, false);
 });

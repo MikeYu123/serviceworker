@@ -36,7 +36,7 @@ this.addEventListener('activate', function(e) {
     if (event.action === 'archive') {
       clients.openWindow('https://mikeyu123.github.io/serviceworker/');
     } else {
-      clients.openWindow("https://google.com");
+      clients.openWindow("https://mikeyu123.github.io/serviceworker/");
     }
   }, false);
 });
